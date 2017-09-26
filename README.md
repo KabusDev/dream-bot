@@ -3,7 +3,7 @@ Dream Bot is a discord bot specifically created for Re-Dream as a replacement fo
 
 The Re-Dream Discord can be found [here][2]
 
-Re-Dreams Organlization on GitHub can be found [here][3]
+Re-Dreams Organization on GitHub can be found [here][3]
 
 This bot is published under the MIT License, I nor anyone that works on this are respoisible for your discord guilds blowing up from use with this bot.
 
