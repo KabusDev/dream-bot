@@ -15,7 +15,7 @@ namespace dreambot
 
     class Program
     {
-        public static string token;
+        public static string discordToken;
 
         static DiscordClient discord;
         static CommandsNextModule commands;
@@ -37,16 +37,17 @@ namespace dreambot
                 Environment.Exit(0);
             }
 
-            token = File.ReadAllText("token.txt");
+            discordToken = File.ReadAllText("token.txt");
 
-            discord = new DiscordClient(new DiscordConfig
+            discord = new DiscordClient(new DiscordConfiguration()
             {
-                Token = token,
-                TokenType = TokenType.Bot,
-
-                UseInternalLogHandler = true,
+                AutomaticGuildSync = true,
+                AutoReconnect = true,
+                EnableCompression = true,
                 LogLevel = LogLevel.Debug,
-                
+                Token = discordToken,
+                TokenType = TokenType.Bot,
+                UseInternalLogHandler = true
             });
 
             discord.MessageCreated += async e =>
@@ -55,13 +56,17 @@ namespace dreambot
                     await e.Message.RespondAsync("123");
             };
 
-            commands = discord.UseCommandsNext(new CommandsNextConfiguration
+            commands = discord.UseCommandsNext(new CommandsNextConfiguration()
             {
-                StringPrefix = "!",
-                EnableDefaultHelp = true
+                CaseSensitive = false,
+                EnableDefaultHelp = true,
+                EnableDms = false,
+                EnableMentionPrefix = true,
+                SelfBot = false,
+                StringPrefix = "!"
             });
 
-            commands.RegisterCommands<UserCommands>();
+            commands.RegisterCommands<UserCommands.Fun>();
 
             // private command check,
             Type privateCheck = Type.GetType("dreambot.PrivateCommands");
