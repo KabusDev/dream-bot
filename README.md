@@ -1,5 +1,5 @@
 ## Dream Bot
-Dream Bot is a discord bot specifically created for Re-Dream as a replacement for multiple bots, it is currently under development.
+Dream Bot is a discord bot specifically created for Re-Dream as a replacement for multiple bots, it is currently under development when I have free time.
 
 The Re-Dream Discord can be found [here][2]
 
